@@ -1,0 +1,56 @@
+name: AI Research Digest
+
+on:
+  schedule:
+    # Every other day at 04:30 UTC (10:00 IST)
+    - cron: '30 4 */2 * *'
+  workflow_dispatch:   # Manual trigger from GitHub Actions UI
+
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
+
+    # Give the job write access so it can commit seen_papers.json back
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run agent
+        env:
+          GROQ_API_KEY:          ${{ secrets.GROQ_API_KEY }}
+          TELEGRAM_BOT_TOKEN:    ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:      ${{ secrets.TELEGRAM_CHAT_ID }}
+          PAPERS_PER_TOPIC:      ${{ vars.PAPERS_PER_TOPIC || '4' }}
+          TOP_K_PER_TOPIC:       ${{ vars.TOP_K_PER_TOPIC  || '3' }}
+          DAYS_BACK:             ${{ vars.DAYS_BACK         || '2' }}
+        run: python paper_agent.py
+
+      - name: Commit updated seen_papers.json
+        # Always run so the file is committed even if the agent partially failed
+        if: always()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add seen_papers.json
+          # Only commit if there is actually a change
+          git diff --cached --quiet || git commit -m "chore: update seen_papers [skip ci]"
+          git push

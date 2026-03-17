@@ -83,6 +83,9 @@ TOPICS = [
 _groq_client = Groq(api_key=GROQ_API_KEY)
 GROQ_MODEL   = "llama-3.1-8b-instant"
 
+# Timestamp of last arXiv request -- arXiv requires ≥3 s between requests
+_last_arxiv_call: float = 0.0
+
 
 def _call_groq(prompt: str, max_tokens: int = 300,
                temperature: float = 0.5) -> str:
@@ -157,6 +160,12 @@ def save_seen_papers(seen: dict):
 def tool_search_arxiv(categories: list, keywords: list,
                       max_results: int = 5) -> list:
     """Search arXiv for recent papers matching categories + keywords."""
+    global _last_arxiv_call
+    # arXiv Terms of Use: minimum 3 s between requests
+    elapsed = time.time() - _last_arxiv_call
+    if elapsed < 3.5:
+        time.sleep(3.5 - elapsed)
+
     cat_query  = " OR ".join(f"cat:{c}" for c in categories)
     kw_query   = " OR ".join(f'all:"{k}"' for k in keywords[:4])
     full_query = f"({cat_query}) AND ({kw_query})"
@@ -168,9 +177,33 @@ def tool_search_arxiv(categories: list, keywords: list,
         "sortBy": "submittedDate",
         "sortOrder": "descending",
     }
-    resp = requests.get("https://export.arxiv.org/api/query",
-                        params=params, timeout=15)
-    resp.raise_for_status()
+
+    # arXiv rate-limits aggressively; retry with exponential backoff
+    resp = None
+    for attempt in range(4):
+        try:
+            _last_arxiv_call = time.time()
+            resp = requests.get("https://export.arxiv.org/api/query",
+                                params=params, timeout=30)
+            if resp.status_code == 429:
+                wait = 5 * (2 ** attempt)       # 5, 10, 20, 40
+                print(f"  [arXiv RATE-LIMITED] Waiting {wait}s "
+                      f"(attempt {attempt + 1}/4)...")
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            break
+        except requests.exceptions.Timeout:
+            if attempt < 3:
+                wait = 5 * (2 ** attempt)
+                print(f"  [arXiv TIMEOUT] Retrying in {wait}s "
+                      f"(attempt {attempt + 1}/4)...")
+                time.sleep(wait)
+                continue
+            raise
+    if resp is None or resp.status_code == 429:
+        print("  [arXiv] All retry attempts exhausted.")
+        return []
 
     ns = {"atom": "http://www.w3.org/2005/Atom"}
     root = ET.fromstring(resp.text)
@@ -207,19 +240,32 @@ def tool_search_semantic_scholar(keywords: list, max_results: int = 5) -> list:
         "year":   f"{year_from}-",
         "sort":   "citationCount:desc",
     }
-    time.sleep(2)   # polite delay to avoid 429s on consecutive topic calls
-    for attempt in range(3):
-        resp = requests.get(
-            "https://api.semanticscholar.org/graph/v1/paper/search",
-            params=params, timeout=20,
-        )
+    time.sleep(3)   # polite delay to avoid 429s on consecutive topic calls
+    resp = None
+    for attempt in range(5):
+        try:
+            resp = requests.get(
+                "https://api.semanticscholar.org/graph/v1/paper/search",
+                params=params, timeout=30,
+            )
+        except requests.exceptions.Timeout:
+            if attempt < 4:
+                print(f"  [S2 TIMEOUT] Retrying in 10s...")
+                time.sleep(10)
+                continue
+            raise
         if resp.status_code == 429:
-            wait = int(resp.headers.get("retry-after", 15))
-            print(f"  [S2 RATE-LIMITED] Waiting {wait}s...")
+            wait = int(resp.headers.get("retry-after", 30))
+            wait = max(wait, 10 * (attempt + 1))  # escalating backoff
+            print(f"  [S2 RATE-LIMITED] Waiting {wait}s "
+                  f"(attempt {attempt + 1}/5)...")
             time.sleep(wait)
             continue
         resp.raise_for_status()
         break
+    if resp is None or resp.status_code == 429:
+        print("  [S2] All retry attempts exhausted -- returning empty.")
+        return []
 
     data   = resp.json().get("data", [])
     papers = []
@@ -254,13 +300,40 @@ def tool_search_papers_with_code(keywords: list, max_results: int = 5) -> list:
     """Search Papers With Code for papers that have code implementations."""
     query   = " ".join(keywords[:3])
     params  = {"q": query, "page": 1, "items_per_page": max_results}
-    headers = {"User-Agent": "research-agent/1.0 (academic use)"}
-    resp    = requests.get(
-        "https://paperswithcode.com/api/v1/papers/",
-        params=params, headers=headers, timeout=15,
-    )
-    resp.raise_for_status()
-    data    = resp.json()
+    headers = {
+        "User-Agent": "research-agent/1.0 (academic use)",
+        "Accept":     "application/json",
+    }
+    for attempt in range(3):
+        try:
+            resp = requests.get(
+                "https://paperswithcode.com/api/v1/papers/",
+                params=params, headers=headers, timeout=20,
+            )
+            if resp.status_code == 429:
+                wait = 10 * (attempt + 1)
+                print(f"  [PWC RATE-LIMITED] Waiting {wait}s...")
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            content_type = resp.headers.get("Content-Type", "")
+            if "json" not in content_type:
+                print(f"  [PWC] Non-JSON response ({content_type}) -- skipping.")
+                return []
+            data = resp.json()
+            break
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
+            if attempt < 2:
+                time.sleep(5)
+                continue
+            raise
+        except json.JSONDecodeError:
+            print("  [PWC] Invalid JSON in response -- skipping.")
+            return []
+    else:
+        print("  [PWC] All retry attempts exhausted.")
+        return []
+
     results = data.get("results", []) if isinstance(data, dict) else data
 
     papers = []
@@ -388,9 +461,25 @@ Line 2 -- Why it matters to practitioners (1 sentence)"""
 
 def tool_send_telegram(message: str) -> str:
     """Send a message to Telegram.  Splits into chunks if too long."""
-    url    = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+
+    # ── Pre-flight: verify bot token is valid ──
+    try:
+        me = requests.get(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getMe",
+            timeout=10,
+        )
+        if me.status_code in (401, 404):
+            raise RuntimeError(
+                f"Telegram bot token is INVALID (HTTP {me.status_code}). "
+                f"Rotate it via @BotFather and update the secret."
+            )
+    except requests.exceptions.RequestException as e:
+        print(f"  [Telegram] Pre-flight check failed: {e}")
+
     chunks = [message[i:i + 4000] for i in range(0, len(message), 4000)]
     errors = []
+    sent   = 0
 
     for chunk in chunks:
         payload = {
@@ -399,22 +488,47 @@ def tool_send_telegram(message: str) -> str:
             "parse_mode":               "Markdown",
             "disable_web_page_preview": True,
         }
-        resp = requests.post(url, json=payload, timeout=10)
-        if resp.status_code != 200:
-            # Retry without Markdown if parsing fails
-            plain = chunk.replace("*", "").replace("_", "").replace("`", "")
-            payload2 = {
-                "chat_id":                  TELEGRAM_CHAT_ID,
-                "text":                     plain,
-                "disable_web_page_preview": True,
-            }
-            resp2 = requests.post(url, json=payload2, timeout=10)
-            if resp2.status_code != 200:
-                errors.append(resp2.text[:200])
+        resp = requests.post(url, json=payload, timeout=15)
+        if resp.status_code == 200:
+            sent += 1
+            continue
+
+        # Diagnose specific error codes
+        try:
+            err_body = resp.json()
+        except Exception:
+            err_body = {"description": resp.text[:300]}
+        err_desc = err_body.get("description", "")
+
+        if resp.status_code == 404:
+            raise RuntimeError(
+                f"Telegram returned 404 -- bot token is invalid or revoked. "
+                f"Rotate via @BotFather and update secrets. ({err_desc})"
+            )
+        if resp.status_code == 400 and "chat not found" in err_desc.lower():
+            raise RuntimeError(
+                f"Telegram chat ID {TELEGRAM_CHAT_ID} not found. "
+                f"Start a conversation with the bot first, then retry. "
+                f"({err_desc})"
+            )
+
+        # Fallback: retry without Markdown (common: Markdown parse error)
+        plain = chunk.replace("*", "").replace("_", "").replace("`", "")
+        payload2 = {
+            "chat_id":                  TELEGRAM_CHAT_ID,
+            "text":                     plain,
+            "disable_web_page_preview": True,
+        }
+        resp2 = requests.post(url, json=payload2, timeout=15)
+        if resp2.status_code == 200:
+            sent += 1
+        else:
+            errors.append(f"HTTP {resp2.status_code}: {resp2.text[:200]}")
 
     if errors:
-        return f"Sent with {len(errors)} error(s): {errors[0]}"
-    return f"Sent {len(chunks)} message(s) to Telegram successfully."
+        return (f"Sent {sent}/{len(chunks)} chunk(s) with "
+                f"{len(errors)} error(s): {errors[0]}")
+    return f"Sent {sent} message(s) to Telegram successfully."
 
 
 # =============================================================
@@ -658,9 +772,14 @@ class ResearchAgent:
                   f"top {TOP_K_PER_TOPIC} papers per topic")
         self._log(f"PLAN: Seen-papers store has {len(self.seen)} entries\n")
 
-        for topic in TOPICS:
+        for idx, topic in enumerate(TOPICS):
             name = topic["name"]
             self._log(f"=== Topic: {name} ===")
+
+            # Polite inter-topic pause (APIs rate-limit across rapid calls)
+            if idx > 0:
+                self._log("  (pausing 5 s between topics)")
+                time.sleep(5)
 
             # Search all sources
             raw_papers = self._search_topic(topic)

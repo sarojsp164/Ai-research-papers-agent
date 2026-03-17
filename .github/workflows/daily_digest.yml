@@ -53,4 +53,6 @@ jobs:
           git add seen_papers.json
           # Only commit if there is actually a change
           git diff --cached --quiet || git commit -m "chore: update seen_papers [skip ci]"
+          # Rebase on top of any commits pushed while agent was running
+          git pull --rebase origin master || true
           git push

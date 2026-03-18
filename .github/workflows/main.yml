@@ -50,8 +50,7 @@ jobs:
           DAYS_BACK:             ${{ vars.DAYS_BACK         || '2' }}
         run: python paper_agent.py
 
-      - name: Commit updated seen_papers.json
-        # Always run so the file is committed even if the agent partially failed
+      - name: Commit & push updated seen_papers.json
         if: always()
         run: |
           set -euo pipefail
@@ -59,8 +58,10 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add seen_papers.json
+          # Make sure we are on master (not detached HEAD)
+          git checkout master
 
+          git add seen_papers.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
@@ -68,14 +69,21 @@ jobs:
 
           git commit -m "chore: update seen_papers [skip ci]"
 
-          # Rebase onto latest master and retry push to avoid non-fast-forward races
+          # Retry loop to handle races
           for i in 1 2 3 4 5; do
-            git pull --rebase origin master
-            if git push origin HEAD:master; then
+            echo "Syncing with origin/master (attempt $i/5)..."
+            git fetch origin master
+
+            # Rebase our new commit(s) onto the latest remote master
+            git rebase origin/master
+
+            # Push the rebased commit; --force-with-lease is safe here
+            if git push --force-with-lease origin master; then
               echo "Pushed successfully."
               exit 0
             fi
-            echo "Push rejected (likely race). Retrying in 5s... attempt $i/5"
+
+            echo "Push rejected (race). Sleeping 5s..."
             sleep 5
           done
 

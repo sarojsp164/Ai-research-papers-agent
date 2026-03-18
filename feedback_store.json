@@ -1,1 +1,187 @@
-{}
+{
+  "last_update_id": 7441499,
+  "processed_callback_ids": [],
+  "votes": [],
+  "papers": {
+    "2603.16862": {
+      "title": "Chronos: Temporal-Aware Conversational Agents with Structured Event Retrieval for Long-Term Memory",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.16862v1",
+      "last_sent_at": "2026-03-18T18:49:41.332626",
+      "sent_count": 1,
+      "last_message_id": 67,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.16867": {
+      "title": "Efficient Reasoning on the Edge",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.16867v1",
+      "last_sent_at": "2026-03-18T18:49:42.341875",
+      "sent_count": 1,
+      "last_message_id": 68,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "22249b3f351e520b": {
+      "title": "GrapheneChat: A Large Language Model for Enhancing Graphene Research.",
+      "topic": "LLMs & Language Models",
+      "source": "Semantic Scholar",
+      "link": "https://www.semanticscholar.org/paper/d5040fc23f2d815371d93629d4a1ab16b27d7153",
+      "last_sent_at": "2026-03-18T18:49:43.322548",
+      "sent_count": 1,
+      "last_message_id": 69,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.16792": {
+      "title": "V-Co: A Closer Look at Visual Representation Alignment via Co-Denoising",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.16792v1",
+      "last_sent_at": "2026-03-18T18:49:45.304951",
+      "sent_count": 1,
+      "last_message_id": 71,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.16840": {
+      "title": "What DINO saw: ALiBi positional encoding reduces positional bias in Vision Transformers",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.16840v1",
+      "last_sent_at": "2026-03-18T18:49:46.276628",
+      "sent_count": 1,
+      "last_message_id": 72,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.16736": {
+      "title": "World Reconstruction From Inconsistent Views",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.16736v1",
+      "last_sent_at": "2026-03-18T18:49:47.279612",
+      "sent_count": 1,
+      "last_message_id": 73,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.16800": {
+      "title": "RaDAR: Relation-aware Diffusion-Asymmetric Graph Contrastive Learning for Recommendation",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.16800v1",
+      "last_sent_at": "2026-03-18T18:49:49.330262",
+      "sent_count": 1,
+      "last_message_id": 75,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.16842": {
+      "title": "Stochastic Resetting Accelerates Policy Convergence in Reinforcement Learning",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.16842v1",
+      "last_sent_at": "2026-03-18T18:49:50.314970",
+      "sent_count": 1,
+      "last_message_id": 76,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.05924": {
+      "title": "Weak-SIGReg: Covariance Regularization for Stable Deep Learning",
+      "topic": "ML / DL Innovations",
+      "source": "Semantic Scholar",
+      "link": "https://arxiv.org/abs/2603.05924",
+      "last_sent_at": "2026-03-18T18:49:51.323327",
+      "sent_count": 1,
+      "last_message_id": 77,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.16739": {
+      "title": "SpecMoE: Spectral Mixture-of-Experts Foundation Model for Cross-Species EEG Decoding",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.16739v1",
+      "last_sent_at": "2026-03-18T18:49:53.292447",
+      "sent_count": 1,
+      "last_message_id": 79,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.16839": {
+      "title": "Learning to Present: Inverse Specification Rewards for Agentic Slide Generation",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.16839v1",
+      "last_sent_at": "2026-03-18T18:49:54.278870",
+      "sent_count": 1,
+      "last_message_id": 80,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.16777": {
+      "title": "Anticipatory Planning for Multimodal AI Agents",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.16777v1",
+      "last_sent_at": "2026-03-18T18:49:55.291865",
+      "sent_count": 1,
+      "last_message_id": 81,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    }
+  }
+}

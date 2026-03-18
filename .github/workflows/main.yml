@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -51,9 +53,11 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add seen_papers.json
-          # Only commit if there is actually a change
-          git diff --cached --quiet || git commit -m "chore: update seen_papers [skip ci]"
-          # Rebase on remote; on conflict, keep our (CI) version of seen_papers.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: update seen_papers [skip ci]"
           git fetch origin master
-          git rebase origin/master -X theirs || true
-          git push origin master
+          git rebase origin/master
+          git push origin HEAD:master

@@ -7,7 +7,7 @@ on:
     # Every other day at 04:30 UTC (10:00 IST)
     - cron: '30 4 */2 * *'
 
-# Ensure only one run at a time updates/pushes seen_papers.json
+# Ensure only one run at a time updates/pushes state files
 concurrency:
   group: seen-papers-update
   cancel-in-progress: false
@@ -47,12 +47,13 @@ jobs:
           GROQ_API_KEY:          ${{ secrets.GROQ_API_KEY }}
           TELEGRAM_BOT_TOKEN:    ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:      ${{ secrets.TELEGRAM_CHAT_ID }}
+          ADMIN_USER_ID:         ${{ secrets.ADMIN_USER_ID }}
           PAPERS_PER_TOPIC:      ${{ vars.PAPERS_PER_TOPIC || '4' }}
           TOP_K_PER_TOPIC:       ${{ vars.TOP_K_PER_TOPIC  || '3' }}
           DAYS_BACK:             ${{ vars.DAYS_BACK         || '2' }}
         run: python paper_agent.py
 
-      - name: Commit & push updated seen_papers.json
+      - name: Commit & push updated state files
         if: always()
         run: |
           set -euo pipefail
@@ -63,7 +64,8 @@ jobs:
           # Make sure we are on master (not detached HEAD)
           git checkout master
 
-          git add seen_papers.json
+          touch feedback_store.json
+          git add seen_papers.json feedback_store.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0

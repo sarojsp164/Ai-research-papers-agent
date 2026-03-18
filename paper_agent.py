@@ -42,11 +42,23 @@ PAPERS_PER_TOPIC = int(os.getenv("PAPERS_PER_TOPIC", 5))
 TOP_K_PER_TOPIC  = int(os.getenv("TOP_K_PER_TOPIC",  3))
 DAYS_BACK        = int(os.getenv("DAYS_BACK",         2))
 
+# Optional: restrict feedback voting to a single Telegram user ID.
+# When set, only this user's 👍/👎 clicks count; others see a polite notice.
+# Leave unset to accept votes from everyone.
+ADMIN_USER_ID    = os.getenv("ADMIN_USER_ID", "").strip()
+
 # Path to the persistent seen-papers store (committed back to repo by CI)
 SEEN_PAPERS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 "seen_papers.json")
 # Maximum number of paper IDs to remember (rolling window to keep file small)
 SEEN_PAPERS_MAX  = 2000
+
+# Path to Telegram feedback state (votes + processed update offset)
+FEEDBACK_STORE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                   "feedback_store.json")
+FEEDBACK_EVENTS_MAX = 5000
+FEEDBACK_PAPERS_MAX = 3000
+PROCESSED_CALLBACKS_MAX = 10000
 
 TOPICS = [
     {
@@ -153,6 +165,319 @@ def save_seen_papers(seen: dict):
         json.dump(seen, f, indent=2)
 
 
+def _default_feedback_store() -> dict:
+    return {
+        "last_update_id": 0,
+        "processed_callback_ids": [],
+        "votes": [],
+        "papers": {},
+    }
+
+
+def _normalise_feedback_store(raw: dict) -> dict:
+    base = _default_feedback_store()
+    if not isinstance(raw, dict):
+        return base
+
+    base["last_update_id"] = int(raw.get("last_update_id", 0) or 0)
+
+    processed = raw.get("processed_callback_ids", [])
+    if isinstance(processed, list):
+        base["processed_callback_ids"] = [str(x) for x in processed if x]
+
+    votes = raw.get("votes", [])
+    if isinstance(votes, list):
+        base["votes"] = [v for v in votes if isinstance(v, dict)]
+
+    papers = raw.get("papers", {})
+    if isinstance(papers, dict):
+        base["papers"] = papers
+
+    return base
+
+
+def load_feedback_store() -> dict:
+    if os.path.exists(FEEDBACK_STORE_FILE):
+        try:
+            with open(FEEDBACK_STORE_FILE, "r", encoding="utf-8") as f:
+                return _normalise_feedback_store(json.load(f))
+        except (json.JSONDecodeError, IOError, ValueError):
+            pass
+    return _default_feedback_store()
+
+
+def _trim_feedback_store(store: dict):
+    store["votes"] = store.get("votes", [])[-FEEDBACK_EVENTS_MAX:]
+    store["processed_callback_ids"] = store.get("processed_callback_ids", [])[
+        -PROCESSED_CALLBACKS_MAX:
+    ]
+
+    papers = store.get("papers", {})
+    if len(papers) > FEEDBACK_PAPERS_MAX:
+        sorted_items = sorted(
+            papers.items(),
+            key=lambda x: (
+                (x[1] or {}).get("last_feedback_at")
+                or (x[1] or {}).get("last_sent_at")
+                or ""
+            ),
+        )
+        store["papers"] = dict(sorted_items[-FEEDBACK_PAPERS_MAX:])
+
+
+def save_feedback_store(store: dict):
+    _trim_feedback_store(store)
+    with open(FEEDBACK_STORE_FILE, "w", encoding="utf-8") as f:
+        json.dump(store, f, indent=2)
+
+
+def register_sent_paper(feedback_store: dict, paper: dict,
+                        topic_name: str, message_id=None):
+    pid = _paper_id(paper)
+    papers = feedback_store.setdefault("papers", {})
+    entry = papers.get(pid, {})
+
+    user_votes = entry.get("user_votes", {})
+    if not isinstance(user_votes, dict):
+        user_votes = {}
+
+    fb = entry.get("feedback", {})
+    if not isinstance(fb, dict):
+        fb = {}
+    up = int(fb.get("up", 0) or 0)
+    down = int(fb.get("down", 0) or 0)
+
+    entry.update({
+        "title": paper.get("title", ""),
+        "topic": topic_name,
+        "source": paper.get("source", ""),
+        "link": paper.get("link", ""),
+        "last_sent_at": datetime.utcnow().isoformat(),
+        "sent_count": int(entry.get("sent_count", 0) or 0) + 1,
+        "last_message_id": message_id,
+        "feedback": {
+            "up": up,
+            "down": down,
+            "score": up - down,
+        },
+        "user_votes": user_votes,
+    })
+    papers[pid] = entry
+
+
+def _record_feedback_vote(feedback_store: dict, paper_id: str, vote: str,
+                          user_id: str, username: str,
+                          callback_id: str, update_id: int) -> bool:
+    papers = feedback_store.setdefault("papers", {})
+    entry = papers.get(paper_id, {})
+
+    user_votes = entry.get("user_votes", {})
+    if not isinstance(user_votes, dict):
+        user_votes = {}
+
+    fb = entry.get("feedback", {})
+    if not isinstance(fb, dict):
+        fb = {}
+
+    up = int(fb.get("up", 0) or 0)
+    down = int(fb.get("down", 0) or 0)
+
+    previous = user_votes.get(user_id)
+    if previous == vote:
+        return False
+
+    if previous == "up":
+        up = max(0, up - 1)
+    elif previous == "down":
+        down = max(0, down - 1)
+
+    if vote == "up":
+        up += 1
+    else:
+        down += 1
+
+    user_votes[user_id] = vote
+    entry["user_votes"] = user_votes
+    entry["feedback"] = {
+        "up": up,
+        "down": down,
+        "score": up - down,
+    }
+    entry["last_feedback_at"] = datetime.utcnow().isoformat()
+    papers[paper_id] = entry
+
+    feedback_store.setdefault("votes", []).append({
+        "paper_id": paper_id,
+        "vote": vote,
+        "user_id": user_id,
+        "username": username,
+        "callback_id": callback_id,
+        "update_id": update_id,
+        "timestamp": datetime.utcnow().isoformat(),
+    })
+    return True
+
+
+def _answer_callback_query(callback_query_id: str, text: str):
+    if not callback_query_id:
+        return
+    try:
+        url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/answerCallbackQuery"
+        payload = {
+            "callback_query_id": callback_query_id,
+            "text": text,
+            "show_alert": False,
+        }
+        requests.post(url, json=payload, timeout=10)
+    except requests.exceptions.RequestException:
+        pass
+
+
+def tool_pull_telegram_feedback(feedback_store: dict) -> dict:
+    """Ingest feedback clicks from Telegram callback queries."""
+    last_update = int(feedback_store.get("last_update_id", 0) or 0)
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getUpdates"
+    params = {
+        "offset": last_update + 1,
+        "timeout": 0,
+    }
+
+    resp = requests.get(url, params=params, timeout=30)
+    resp.raise_for_status()
+    body = resp.json()
+    if not body.get("ok"):
+        raise RuntimeError(f"Telegram getUpdates failed: {body}")
+
+    updates = body.get("result", [])
+    processed = set(feedback_store.get("processed_callback_ids", []))
+    new_votes = 0
+    ignored = 0
+    max_update_id = last_update
+
+    for update in updates:
+        update_id = update.get("update_id")
+        if isinstance(update_id, int):
+            max_update_id = max(max_update_id, update_id)
+
+        callback = update.get("callback_query") or {}
+        callback_id = callback.get("id", "")
+        if callback_id and callback_id in processed:
+            continue
+
+        payload = callback.get("data", "")
+        parts = payload.split(":", 2)
+        if len(parts) != 3 or parts[0] != "fb" or parts[1] not in {"up", "down"}:
+            if callback_id:
+                processed.add(callback_id)
+            ignored += 1
+            continue
+
+        message = callback.get("message") or {}
+        chat = message.get("chat") or {}
+        chat_id = str(chat.get("id", ""))
+        target_chat_id = str(TELEGRAM_CHAT_ID)
+        if target_chat_id.lstrip("-").isdigit() and chat_id and chat_id != target_chat_id:
+            if callback_id:
+                processed.add(callback_id)
+            ignored += 1
+            continue
+
+        vote = parts[1]
+        paper_id = parts[2]
+        user = callback.get("from") or {}
+        user_id = str(user.get("id", "unknown"))
+        username = (user.get("username")
+                    or user.get("first_name")
+                    or "unknown")
+
+        # ── admin-only feedback gate ──
+        if ADMIN_USER_ID and user_id != ADMIN_USER_ID:
+            _answer_callback_query(
+                callback_id,
+                "Feedback is restricted to the channel admin.",
+            )
+            if callback_id:
+                processed.add(callback_id)
+            ignored += 1
+            continue
+
+        changed = _record_feedback_vote(
+            feedback_store=feedback_store,
+            paper_id=paper_id,
+            vote=vote,
+            user_id=user_id,
+            username=username,
+            callback_id=callback_id,
+            update_id=int(update_id or 0),
+        )
+        if changed:
+            new_votes += 1
+            _answer_callback_query(
+                callback_id,
+                "Feedback saved. Thanks!",
+            )
+        else:
+            _answer_callback_query(
+                callback_id,
+                "Already recorded.",
+            )
+
+        if callback_id:
+            processed.add(callback_id)
+
+    feedback_store["last_update_id"] = max_update_id
+    feedback_store["processed_callback_ids"] = list(processed)
+    _trim_feedback_store(feedback_store)
+    return {
+        "new_votes": new_votes,
+        "ignored": ignored,
+        "updates": len(updates),
+        "last_update_id": max_update_id,
+    }
+
+
+def build_feedback_profile(feedback_store: dict, max_examples: int = 8) -> dict:
+    """Build compact like/dislike context for ranking prompts."""
+    liked = []
+    disliked = []
+    total_votes = 0
+
+    for meta in (feedback_store.get("papers") or {}).values():
+        if not isinstance(meta, dict):
+            continue
+        fb = meta.get("feedback") or {}
+        up = int(fb.get("up", 0) or 0)
+        down = int(fb.get("down", 0) or 0)
+        votes = up + down
+        total_votes += votes
+        if votes == 0:
+            continue
+
+        title = (meta.get("title") or "").strip()
+        if not title:
+            continue
+
+        item = {
+            "title": title,
+            "topic": meta.get("topic", ""),
+            "score": up - down,
+            "votes": votes,
+        }
+        if item["score"] > 0:
+            liked.append(item)
+        elif item["score"] < 0:
+            disliked.append(item)
+
+    liked.sort(key=lambda x: (x["score"], x["votes"]), reverse=True)
+    disliked.sort(key=lambda x: (x["score"], -x["votes"]))
+
+    return {
+        "total_votes": total_votes,
+        "liked": liked[:max_examples],
+        "disliked": disliked[:max_examples],
+    }
+
+
 # =============================================================
 #  TOOL: SEARCH SOURCES
 # =============================================================
@@ -168,7 +493,12 @@ def tool_search_arxiv(categories: list, keywords: list,
 
     cat_query  = " OR ".join(f"cat:{c}" for c in categories)
     kw_query   = " OR ".join(f'all:"{k}"' for k in keywords[:4])
-    full_query = f"({cat_query}) AND ({kw_query})"
+    # Add date range so DAYS_BACK is respected
+    date_end   = datetime.utcnow()
+    date_start = date_end - timedelta(days=DAYS_BACK)
+    date_filter = (f"submittedDate:[{date_start.strftime('%Y%m%d')}0000"
+                   f" TO {date_end.strftime('%Y%m%d')}2359]")
+    full_query = f"({cat_query}) AND ({kw_query}) AND {date_filter}"
 
     params = {
         "search_query": full_query,
@@ -232,12 +562,15 @@ def tool_search_arxiv(categories: list, keywords: list,
 def tool_search_semantic_scholar(keywords: list, max_results: int = 5) -> list:
     """Search Semantic Scholar for recent influential papers."""
     query     = " ".join(keywords[:4])
-    year_from = (datetime.utcnow() - timedelta(days=DAYS_BACK * 30)).year
+    # Use publicationDateOrYear for precise recency (YYYY-MM-DD range)
+    date_from = (datetime.utcnow() - timedelta(days=max(DAYS_BACK * 15, 30))
+                 ).strftime("%Y-%m-%d")
+    date_to   = datetime.utcnow().strftime("%Y-%m-%d")
     params    = {
         "query":  query,
         "limit":  max_results,
         "fields": "title,abstract,url,authors,year,citationCount,externalIds",
-        "year":   f"{year_from}-",
+        "publicationDateOrYear": f"{date_from}:{date_to}",
         "sort":   "citationCount:desc",
     }
     time.sleep(3)   # polite delay to avoid 429s on consecutive topic calls
@@ -395,7 +728,8 @@ Answer with exactly one word: YES or NO."""
 #  TOOL: LLM RANK
 # =============================================================
 
-def tool_rank_papers(papers: list, topic: str, top_k: int = 3) -> list:
+def tool_rank_papers(papers: list, topic: str, top_k: int = 3,
+                     feedback_profile: dict = None) -> list:
     """Ask the LLM to rank papers by novelty + impact.  Returns top-k indices."""
     if len(papers) <= top_k:
         return list(range(len(papers)))
@@ -415,10 +749,35 @@ def tool_rank_papers(papers: list, topic: str, top_k: int = 3) -> list:
             f"    {p['abstract'][:200]}..."
         )
 
+    feedback_block = ""
+    if feedback_profile and feedback_profile.get("total_votes", 0) > 0:
+        liked = feedback_profile.get("liked", [])
+        disliked = feedback_profile.get("disliked", [])
+        liked_lines = ("\n".join(
+            f"- {x['title']} (topic={x.get('topic', 'unknown')}, score={x['score']})"
+            for x in liked
+        ) or "- none")
+        disliked_lines = ("\n".join(
+            f"- {x['title']} (topic={x.get('topic', 'unknown')}, score={x['score']})"
+            for x in disliked
+        ) or "- none")
+        feedback_block = f"""
+User preference signal from Telegram feedback (soft constraint):
+- Total votes observed: {feedback_profile['total_votes']}
+- Liked examples:
+{liked_lines}
+- Disliked examples:
+{disliked_lines}
+
+Prefer papers similar to liked examples and avoid papers similar to disliked
+examples, but never sacrifice scientific quality just to match preference."""
+
     prompt = f"""You are an AI research curator. Given these papers on "{topic}",
 pick the {top_k} MOST important ones: novelty, practical impact, scientific
 contribution. Prefer papers with code or high citations. Trending papers are
-gaining rapid attention and should be weighted higher.
+gaining rapid attention and should be weighted higher. Also send papers from ai companies as well [openai, deepmind, google, microsoft, anthropic, meta, nvidia, stability ai].
+
+{feedback_block}
 
 Papers:
 {chr(10).join(descriptions)}
@@ -461,74 +820,102 @@ Line 2 -- Why it matters to practitioners (1 sentence)"""
 
 def tool_send_telegram(message: str) -> str:
     """Send a message to Telegram.  Splits into chunks if too long."""
-    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    chunks = [message[i:i + 4000] for i in range(0, len(message), 4000)]
+    errors = []
+    sent = 0
 
-    # ── Pre-flight: verify bot token is valid ──
+    for chunk in chunks:
+        result = tool_send_telegram_message(chunk)
+        if result.get("ok"):
+            sent += 1
+        else:
+            errors.append(result.get("error", "unknown Telegram error"))
+
+    if errors:
+        return (f"Sent {sent}/{len(chunks)} chunk(s) with "
+                f"{len(errors)} error(s): {errors[0]}")
+    return f"Sent {sent} message(s) to Telegram successfully."
+
+
+def tool_send_telegram_message(message: str, reply_markup: dict = None) -> dict:
+    """Send one Telegram message and return status + message_id."""
     try:
         me = requests.get(
             f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/getMe",
             timeout=10,
         )
         if me.status_code in (401, 404):
-            raise RuntimeError(
-                f"Telegram bot token is INVALID (HTTP {me.status_code}). "
-                f"Rotate it via @BotFather and update the secret."
-            )
+            return {
+                "ok": False,
+                "error": (
+                    "Telegram bot token is invalid or revoked. "
+                    "Rotate it via @BotFather and update the secret."
+                ),
+            }
     except requests.exceptions.RequestException as e:
         print(f"  [Telegram] Pre-flight check failed: {e}")
 
-    chunks = [message[i:i + 4000] for i in range(0, len(message), 4000)]
-    errors = []
-    sent   = 0
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    payload = {
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": message,
+        "parse_mode": "Markdown",
+        "disable_web_page_preview": True,
+    }
+    if reply_markup:
+        payload["reply_markup"] = reply_markup
 
-    for chunk in chunks:
-        payload = {
-            "chat_id":                  TELEGRAM_CHAT_ID,
-            "text":                     chunk,
-            "parse_mode":               "Markdown",
-            "disable_web_page_preview": True,
+    resp = requests.post(url, json=payload, timeout=15)
+    if resp.status_code == 200:
+        body = resp.json()
+        return {
+            "ok": True,
+            "message_id": (body.get("result") or {}).get("message_id"),
         }
-        resp = requests.post(url, json=payload, timeout=15)
-        if resp.status_code == 200:
-            sent += 1
-            continue
 
-        # Diagnose specific error codes
-        try:
-            err_body = resp.json()
-        except Exception:
-            err_body = {"description": resp.text[:300]}
-        err_desc = err_body.get("description", "")
+    try:
+        err_body = resp.json()
+    except Exception:
+        err_body = {"description": resp.text[:300]}
+    err_desc = err_body.get("description", "")
 
-        if resp.status_code == 404:
-            raise RuntimeError(
-                f"Telegram returned 404 -- bot token is invalid or revoked. "
-                f"Rotate via @BotFather and update secrets. ({err_desc})"
-            )
-        if resp.status_code == 400 and "chat not found" in err_desc.lower():
-            raise RuntimeError(
+    if resp.status_code == 404:
+        return {
+            "ok": False,
+            "error": (
+                "Telegram returned 404 -- bot token is invalid or revoked. "
+                f"{err_desc}"
+            ),
+        }
+    if resp.status_code == 400 and "chat not found" in err_desc.lower():
+        return {
+            "ok": False,
+            "error": (
                 f"Telegram chat ID {TELEGRAM_CHAT_ID} not found. "
-                f"Start a conversation with the bot first, then retry. "
-                f"({err_desc})"
-            )
-
-        # Fallback: retry without Markdown (common: Markdown parse error)
-        plain = chunk.replace("*", "").replace("_", "").replace("`", "")
-        payload2 = {
-            "chat_id":                  TELEGRAM_CHAT_ID,
-            "text":                     plain,
-            "disable_web_page_preview": True,
+                "Start a conversation with the bot first, then retry. "
+                f"{err_desc}"
+            ),
         }
-        resp2 = requests.post(url, json=payload2, timeout=15)
-        if resp2.status_code == 200:
-            sent += 1
-        else:
-            errors.append(f"HTTP {resp2.status_code}: {resp2.text[:200]}")
 
-    if errors:
-        return (f"Sent {sent}/{len(chunks)} chunk(s) with "
-                f"{len(errors)} error(s): {errors[0]}")
-    return f"Sent {sent} message(s) to Telegram successfully."
+    plain = message.replace("*", "").replace("_", "").replace("`", "")
+    payload2 = {
+        "chat_id": TELEGRAM_CHAT_ID,
+        "text": plain,
+        "disable_web_page_preview": True,
+    }
+    if reply_markup:
+        payload2["reply_markup"] = reply_markup
+    resp2 = requests.post(url, json=payload2, timeout=15)
+    if resp2.status_code == 200:
+        body2 = resp2.json()
+        return {
+            "ok": True,
+            "message_id": (body2.get("result") or {}).get("message_id"),
+        }
+    return {
+        "ok": False,
+        "error": f"HTTP {resp2.status_code}: {resp2.text[:200]}",
+    }
 
 
 # =============================================================
@@ -572,7 +959,8 @@ class ResearchAgent:
     """
     Autonomous research agent:
       PLAN -> SEARCH -> FILTER (seen + relevance) -> DEDUP -> RANK
-           -> SUMMARIZE -> BUILD DIGEST -> DELIVER -> PERSIST SEEN
+                     -> SUMMARIZE -> DELIVER (one paper/message + feedback buttons)
+                     -> PULL FEEDBACK -> PERSIST STATE
     """
 
     def __init__(self):
@@ -580,12 +968,33 @@ class ResearchAgent:
         self.log:           list = []
         self.seen                = load_seen_papers()
         self.newly_seen:    dict = {}   # ids encountered this run
+        self.feedback_store       = load_feedback_store()
+        self.feedback_profile     = build_feedback_profile(self.feedback_store)
 
     def _log(self, msg: str):
         ts   = datetime.utcnow().strftime("%H:%M:%S")
         line = f"[{ts}] {msg}"
         self.log.append(line)
         print(line, flush=True)
+
+    def _sync_feedback_from_telegram(self):
+        self._log("PLAN: Syncing Telegram feedback updates...")
+        try:
+            result = tool_pull_telegram_feedback(self.feedback_store)
+            self.feedback_profile = build_feedback_profile(self.feedback_store)
+            save_feedback_store(self.feedback_store)
+            self._log(
+                "  ACT: Feedback sync complete -- "
+                f"{result['new_votes']} new vote(s), "
+                f"{self.feedback_profile['total_votes']} total vote(s)."
+            )
+            if self.feedback_profile["total_votes"] == 0:
+                self._log("  OBSERVE: No feedback yet -- ranking stays neutral.")
+        except Exception as e:
+            self.feedback_profile = {"total_votes": 0, "liked": [], "disliked": []}
+            self._log(
+                f"  OBSERVE: Feedback sync failed ({e}) -- using neutral ranking."
+            )
 
     # ------------------------------------------------------------------
     # PHASE 1 -- Search
@@ -688,7 +1097,12 @@ class ResearchAgent:
         self._log(f"THINK: LLM ranking {len(unique)} papers "
                   f"-- picking top {TOP_K_PER_TOPIC}...")
         try:
-            top_indices = tool_rank_papers(unique, topic_name, TOP_K_PER_TOPIC)
+            top_indices = tool_rank_papers(
+                unique,
+                topic_name,
+                TOP_K_PER_TOPIC,
+                self.feedback_profile,
+            )
             ranked      = [unique[i] for i in top_indices]
             self._log(f"  ACT: LLM selected indices {top_indices}")
             return ranked
@@ -715,52 +1129,81 @@ class ResearchAgent:
         return results
 
     # ------------------------------------------------------------------
-    # PHASE 6 -- Build digest
+    # PHASE 6 -- Deliver
     # ------------------------------------------------------------------
 
-    def _build_digest(self) -> str:
-        """
-        Clean, uncluttered digest format:
-          1. Paper Title [TRENDING]
-             link
-             summary (2 lines)
-        """
+    def _deliver(self):
+        self._log("THINK: Sending digest to Telegram (one paper per message)...")
+
         today = datetime.utcnow().strftime("%B %d, %Y")
-        lines = [f"*AI Research Digest -- {today}*", ""]
+        intro = (
+            f"*AI Research Digest -- {today}*\n"
+            "Send feedback per paper using the buttons below each message."
+        )
+        intro_result = tool_send_telegram_message(intro)
+        if not intro_result.get("ok"):
+            raise RuntimeError(f"Telegram intro send failed: {intro_result.get('error')}")
 
         any_papers = False
+        sent_count = 0
+
         for topic_name, papers in self.ranked_papers.items():
             if not papers:
                 continue
+
             any_papers = True
-            lines.append(f"--- *{topic_name}* ---")
-            lines.append("")
+            tool_send_telegram_message(f"--- *{topic_name}* ---")
 
             for i, (paper, summary) in enumerate(papers, 1):
+                pid = _paper_id(paper)
                 trending_tag = "  [TRENDING]" if paper.get("trending") else ""
-                lines.append(f"*{i}. {paper['title']}*{trending_tag}")
-                lines.append(paper["link"])
+
+                lines = [
+                    f"*{i}. {paper['title']}*{trending_tag}",
+                    paper["link"],
+                ]
                 if paper.get("code_url"):
                     lines.append(f"Code: {paper['code_url']}")
                 lines.append(summary)
-                lines.append("")  # blank line between papers
+                lines.append("_Feedback: tap 👍 or 👎 below_")
+
+                # Telegram limits callback_data to 64 bytes
+                cb_up   = f"fb:up:{pid}"[:64]
+                cb_down = f"fb:down:{pid}"[:64]
+                keyboard = {
+                    "inline_keyboard": [[
+                        {"text": "👍 Relevant", "callback_data": cb_up},
+                        {"text": "👎 Not useful", "callback_data": cb_down},
+                    ]]
+                }
+
+                result = tool_send_telegram_message(
+                    "\n".join(lines),
+                    reply_markup=keyboard,
+                )
+
+                if not result.get("ok"):
+                    self._log(
+                        "  OBSERVE: Failed to send paper message "
+                        f"'{paper['title'][:45]}...' ({result.get('error')})"
+                    )
+                    continue
+
+                register_sent_paper(
+                    feedback_store=self.feedback_store,
+                    paper=paper,
+                    topic_name=topic_name,
+                    message_id=result.get("message_id"),
+                )
+                sent_count += 1
 
         if not any_papers:
-            lines.append("No new papers this cycle -- "
-                         "all recent papers were already sent.")
-            lines.append("")
+            tool_send_telegram_message(
+                "No new papers this cycle -- all recent papers were already sent."
+            )
 
-        lines.append("_arXiv + Semantic Scholar + Papers With Code | Groq LLM_")
-        return "\n".join(lines)
-
-    # ------------------------------------------------------------------
-    # PHASE 7 -- Deliver
-    # ------------------------------------------------------------------
-
-    def _deliver(self, digest: str):
-        self._log("THINK: Sending digest to Telegram...")
-        result = tool_send_telegram(digest)
-        self._log(f"  OBSERVE: {result}")
+        save_feedback_store(self.feedback_store)
+        self._log(f"  OBSERVE: Sent {sent_count} paper message(s) with feedback buttons.")
 
     # ------------------------------------------------------------------
     # MAIN LOOP
@@ -772,6 +1215,9 @@ class ResearchAgent:
                   f"top {TOP_K_PER_TOPIC} papers per topic")
         self._log(f"PLAN: Seen-papers store has {len(self.seen)} entries\n")
 
+        self._sync_feedback_from_telegram()
+        self._log("")
+
         for idx, topic in enumerate(TOPICS):
             name = topic["name"]
             self._log(f"=== Topic: {name} ===")
@@ -781,19 +1227,34 @@ class ResearchAgent:
                 self._log("  (pausing 5 s between topics)")
                 time.sleep(5)
 
-            # Search all sources
+            # Search all sources — with adaptive deepening
             raw_papers = self._search_topic(topic)
-            if not raw_papers:
-                self._log(f"REFLECT: No papers found for '{name}' "
-                          "-- skipping.\n")
-                self.ranked_papers[name] = []
-                continue
+            fresh_papers = []
+            if raw_papers:
+                fresh_papers = self._filter_seen(raw_papers, name)
 
-            # Drop already-seen papers
-            fresh_papers = self._filter_seen(raw_papers, name)
+            # Agentic self-correction: if all results are seen, widen search
+            if not fresh_papers and raw_papers:
+                self._log(f"REFLECT: All {len(raw_papers)} papers for "
+                          f"'{name}' were already sent -- deepening search...")
+                wider_topic = {
+                    **topic,
+                    "keywords": topic["keywords"][:2],  # broader terms
+                }
+                extra = tool_search_arxiv(
+                    wider_topic["categories"],
+                    wider_topic["keywords"],
+                    max_results=PAPERS_PER_TOPIC * 3,
+                )
+                if extra:
+                    self._log(f"  ACT: Widened arXiv -> {len(extra)} paper(s)")
+                    fresh_papers = self._filter_seen(extra, name)
+
             if not fresh_papers:
-                self._log(f"REFLECT: All papers for '{name}' were "
-                          "already sent -- skipping.\n")
+                reason = ("no results from any source"
+                          if not raw_papers
+                          else "all papers already sent (even after deepening)")
+                self._log(f"REFLECT: {reason} for '{name}' -- skipping.\n")
                 self.ranked_papers[name] = []
                 continue
 
@@ -816,18 +1277,19 @@ class ResearchAgent:
             self._log(f"REFLECT: '{name}' done -- "
                       f"{len(summarized)} papers ready.\n")
 
-        # Build + deliver
-        self._log("=== Building final digest ===")
-        digest = self._build_digest()
-
         self._log("=== Delivering digest ===")
-        self._deliver(digest)
+        self._deliver()
 
         # Persist seen papers (includes all new IDs from this run)
         self.seen.update(self.newly_seen)
         save_seen_papers(self.seen)
         self._log(f"ACT: Saved {len(self.newly_seen)} new paper ID(s) "
                   f"to seen_papers.json (total: {len(self.seen)})")
+        save_feedback_store(self.feedback_store)
+        self._log(
+            f"ACT: Feedback store now has "
+            f"{self.feedback_profile.get('total_votes', 0)} total vote(s)."
+        )
 
         self._log("DONE: Agent finished successfully.")
 

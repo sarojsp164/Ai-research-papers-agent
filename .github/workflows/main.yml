@@ -4,7 +4,11 @@ on:
   schedule:
     # Every other day at 04:30 UTC (10:00 IST)
     - cron: '30 4 */2 * *'
-  workflow_dispatch:   # Manual trigger from GitHub Actions UI
+
+# Ensure only one run at a time updates/pushes seen_papers.json
+concurrency:
+  group: seen-papers-update
+  cancel-in-progress: false
 
 jobs:
   run-agent:
@@ -50,14 +54,30 @@ jobs:
         # Always run so the file is committed even if the agent partially failed
         if: always()
         run: |
+          set -euo pipefail
+
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add seen_papers.json
+
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
+
           git commit -m "chore: update seen_papers [skip ci]"
-          git fetch origin master
-          git rebase origin/master
-          git push origin HEAD:master
+
+          # Rebase onto latest master and retry push to avoid non-fast-forward races
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin master
+            if git push origin HEAD:master; then
+              echo "Pushed successfully."
+              exit 0
+            fi
+            echo "Push rejected (likely race). Retrying in 5s... attempt $i/5"
+            sleep 5
+          done
+
+          echo "Failed to push after retries."
+          exit 1

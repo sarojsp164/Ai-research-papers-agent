@@ -2,7 +2,6 @@
 name: AI Research Digest
 
 on:
-  workflow_dispatch:
   schedule:
     # Every other day at 04:30 UTC (10:00 IST)
     - cron: '30 4 */2 * *'

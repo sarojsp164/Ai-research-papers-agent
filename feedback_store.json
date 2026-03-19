@@ -182,6 +182,171 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2603.18002": {
+      "title": "Loc3R-VLM: Language-based Localization and 3D Reasoning with Vision-Language Models",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.18002v1",
+      "last_sent_at": "2026-03-19T05:48:12.517577",
+      "sent_count": 1,
+      "last_message_id": 84,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.18004": {
+      "title": "Unified Spatio-Temporal Token Scoring for Efficient Video VLMs",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.18004v1",
+      "last_sent_at": "2026-03-19T05:48:18.502541",
+      "sent_count": 2,
+      "last_message_id": 89,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.18000": {
+      "title": "AgentFactory: A Self-Evolving Framework Through Executable Subagent Accumulation and Reuse",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.18000v1",
+      "last_sent_at": "2026-03-19T05:48:14.898141",
+      "sent_count": 1,
+      "last_message_id": 86,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.17975": {
+      "title": "AHOY! Animatable Humans under Occlusion from YouTube Videos with Gaussian Splatting and Video Diffusion Priors",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.17975v1",
+      "last_sent_at": "2026-03-19T05:48:17.261823",
+      "sent_count": 1,
+      "last_message_id": 88,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "0711bde35cc4ea43": {
+      "title": "Learning Conditional Diffusion Transformer for Salient Object Detection in Optical Remote Sensing Images.",
+      "topic": "Computer Vision",
+      "source": "Semantic Scholar",
+      "link": "https://www.semanticscholar.org/paper/67b01753dc939b0e7b523db997f005a615829474",
+      "last_sent_at": "2026-03-19T05:48:19.725263",
+      "sent_count": 1,
+      "last_message_id": 90,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.17970": {
+      "title": "Beyond Muon: MUD (MomentUm Decorrelation) for Faster Transformer Training",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.17970v1",
+      "last_sent_at": "2026-03-19T05:48:22.059813",
+      "sent_count": 1,
+      "last_message_id": 92,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.17912": {
+      "title": "Pretrained Multilingual Transformers Reveal Quantitative Distance Between Human Languages",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.17912v1",
+      "last_sent_at": "2026-03-19T05:48:23.247053",
+      "sent_count": 1,
+      "last_message_id": 93,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.17995": {
+      "title": "LoST: Level of Semantics Tokenization for 3D Shapes",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.17995v1",
+      "last_sent_at": "2026-03-19T05:48:24.452951",
+      "sent_count": 1,
+      "last_message_id": 94,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.17775": {
+      "title": "CoVerRL: Breaking the Consensus Trap in Label-Free Reasoning via Generator-Verifier Co-Evolution",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.17775v1",
+      "last_sent_at": "2026-03-19T05:48:26.857028",
+      "sent_count": 1,
+      "last_message_id": 96,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.17829": {
+      "title": "CodeScout: An Effective Recipe for Reinforcement Learning of Code Search Agents",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.17829v1",
+      "last_sent_at": "2026-03-19T05:48:28.016220",
+      "sent_count": 1,
+      "last_message_id": 97,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.17808": {
+      "title": "EVA: Aligning Video World Models with Executable Robot Actions via Inverse Dynamics Rewards",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.17808v1",
+      "last_sent_at": "2026-03-19T05:48:29.200761",
+      "sent_count": 1,
+      "last_message_id": 98,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

@@ -347,6 +347,186 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2603.19223": {
+      "title": "F2LLM-v2: Inclusive, Performant, and Efficient Embeddings for a Multilingual World",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19223v1",
+      "last_sent_at": "2026-03-20T16:28:23.794665",
+      "sent_count": 1,
+      "last_message_id": 18,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19220": {
+      "title": "Nemotron-Cascade 2: Post-Training LLMs with Cascade RL and Multi-Domain On-Policy Distillation",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19220v1",
+      "last_sent_at": "2026-03-20T16:28:24.609237",
+      "sent_count": 1,
+      "last_message_id": 19,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19225": {
+      "title": "FinTradeBench: A Financial Reasoning Benchmark for LLMs",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19225v1",
+      "last_sent_at": "2026-03-20T16:28:25.424995",
+      "sent_count": 1,
+      "last_message_id": 20,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19235": {
+      "title": "Generation Models Know Space: Unleashing Implicit 3D Priors for Scene Understanding",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19235v1",
+      "last_sent_at": "2026-03-20T16:28:30.283812",
+      "sent_count": 1,
+      "last_message_id": 22,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19227": {
+      "title": "Bridging Semantic and Kinematic Conditions with Diffusion-based Discrete Motion Tokenizer",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19227v1",
+      "last_sent_at": "2026-03-20T16:28:31.104618",
+      "sent_count": 1,
+      "last_message_id": 23,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19222": {
+      "title": "Spectrally-Guided Diffusion Noise Schedules",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19222v1",
+      "last_sent_at": "2026-03-20T16:28:31.912789",
+      "sent_count": 1,
+      "last_message_id": 24,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19160": {
+      "title": "PPI is the Difference Estimator: Recognizing the Survey Sampling Roots of Prediction-Powered Inference",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19160v1",
+      "last_sent_at": "2026-03-20T16:28:36.720830",
+      "sent_count": 1,
+      "last_message_id": 26,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19173": {
+      "title": "SOL-ExecBench: Speed-of-Light Benchmarking for Real-World GPU Kernels Against Hardware Limits",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19173v1",
+      "last_sent_at": "2026-03-20T16:28:37.575319",
+      "sent_count": 1,
+      "last_message_id": 27,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19165": {
+      "title": "Rigorous Error Certification for Neural PDE Solvers: From Empirical Residuals to Solution Guarantees",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19165v1",
+      "last_sent_at": "2026-03-20T16:28:38.411357",
+      "sent_count": 1,
+      "last_message_id": 28,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19182": {
+      "title": "Box Maze: A Process-Control Architecture for Reliable LLM Reasoning",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19182v1",
+      "last_sent_at": "2026-03-20T16:28:40.052090",
+      "sent_count": 1,
+      "last_message_id": 30,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "8dd1d85602336bc2": {
+      "title": "The GATTACA Framework: Graph Neural Network-Based Reinforcement Learning for Controlling Biological Networks",
+      "topic": "New AI Algorithms",
+      "source": "Semantic Scholar",
+      "link": "https://www.semanticscholar.org/paper/8fc4a671a8b52b428f9ad7fbb8a5937b83f62067",
+      "last_sent_at": "2026-03-20T16:28:44.068555",
+      "sent_count": 1,
+      "last_message_id": 31,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19191": {
+      "title": "OS-Themis: A Scalable Critic Framework for Generalist GUI Rewards",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19191v1",
+      "last_sent_at": "2026-03-20T16:28:44.885010",
+      "sent_count": 1,
+      "last_message_id": 32,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

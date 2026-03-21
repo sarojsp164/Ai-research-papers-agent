@@ -527,6 +527,126 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "ed79f0a69df502c4": {
+      "title": "A dataset of fable stories for instruction fine-tuning of large language models",
+      "topic": "LLMs & Language Models",
+      "source": "Semantic Scholar",
+      "link": "https://www.semanticscholar.org/paper/f87085721241465b9f1f03847cc1d859c5866cda",
+      "last_sent_at": "2026-03-21T05:29:48.930644",
+      "sent_count": 1,
+      "last_message_id": 35,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "c3e25d2990b0eba7": {
+      "title": "MSTDiff: Multiscale-Aware Transformer Diffusion Network for Video Object Detection",
+      "topic": "Computer Vision",
+      "source": "Semantic Scholar",
+      "link": "https://www.semanticscholar.org/paper/ddddbc238b0faae6d80b78fc156059e1f2c47e32",
+      "last_sent_at": "2026-03-21T05:29:50.547755",
+      "sent_count": 1,
+      "last_message_id": 37,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.18985": {
+      "title": "Revisiting OmniAnomaly for Anomaly Detection: performance metrics and comparison with PCA-based models",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.18985v1",
+      "last_sent_at": "2026-03-21T05:29:55.369634",
+      "sent_count": 1,
+      "last_message_id": 39,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.18581": {
+      "title": "WarPGNN: A Parametric Thermal Warpage Analysis Framework with Physics-aware Graph Neural Network",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.18581v1",
+      "last_sent_at": "2026-03-21T05:29:56.188337",
+      "sent_count": 1,
+      "last_message_id": 40,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.19041": {
+      "title": "Fast and Interpretable Autoregressive Estimation with Neural Network Backpropagation",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.19041v1",
+      "last_sent_at": "2026-03-21T05:29:57.006575",
+      "sent_count": 1,
+      "last_message_id": 41,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.18859": {
+      "title": "RewardFlow: Topology-Aware Reward Propagation on State Graphs for Agentic RL with Large Language Models",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.18859v1",
+      "last_sent_at": "2026-03-21T05:30:01.793018",
+      "sent_count": 1,
+      "last_message_id": 43,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.18892": {
+      "title": "MultihopSpatial: Multi-hop Compositional Spatial Reasoning Benchmark for Vision-Language Model",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.18892v1",
+      "last_sent_at": "2026-03-21T05:30:02.599975",
+      "sent_count": 1,
+      "last_message_id": 44,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.18773": {
+      "title": "Automatic Configuration of LLM Post-Training Pipelines",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.18773v1",
+      "last_sent_at": "2026-03-21T05:30:03.403385",
+      "sent_count": 1,
+      "last_message_id": 45,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

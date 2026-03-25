@@ -647,6 +647,156 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "530fa72257d4d6cc": {
+      "title": "PF-LLM: Large Language Model Hinted Hardware Prefetching",
+      "topic": "LLMs & Language Models",
+      "source": "Semantic Scholar",
+      "link": "https://www.semanticscholar.org/paper/7bfc3a268f79db2758b3b7b2b7bdaf391d00f94e",
+      "last_sent_at": "2026-03-25T05:54:36.809596",
+      "sent_count": 1,
+      "last_message_id": 50,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.23499": {
+      "title": "DA-Flow: Degradation-Aware Optical Flow Estimation with Diffusion Models",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.23499v1",
+      "last_sent_at": "2026-03-25T05:54:38.442189",
+      "sent_count": 1,
+      "last_message_id": 52,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.23462": {
+      "title": "RealMaster: Lifting Rendered Scenes into Photorealistic Video",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.23462v1",
+      "last_sent_at": "2026-03-25T05:54:42.442777",
+      "sent_count": 1,
+      "last_message_id": 53,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.23500": {
+      "title": "UniGRPO: Unified Policy Optimization for Reasoning-Driven Visual Generation",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.23500v1",
+      "last_sent_at": "2026-03-25T05:54:43.273490",
+      "sent_count": 1,
+      "last_message_id": 54,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.23472": {
+      "title": "Byzantine-Robust and Differentially Private Federated Optimization under Weaker Assumptions",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.23472v1",
+      "last_sent_at": "2026-03-25T05:54:44.923468",
+      "sent_count": 1,
+      "last_message_id": 56,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.23398": {
+      "title": "Graph Energy Matching: Transport-Aligned Energy-Based Modeling for Graph Generation",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.23398v1",
+      "last_sent_at": "2026-03-25T05:54:45.733456",
+      "sent_count": 1,
+      "last_message_id": 57,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.23496": {
+      "title": "Estimating Flow Velocity and Vehicle Angle-of-Attack from Non-invasive Piezoelectric Structural Measurements Using Deep Learning",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.23496v1",
+      "last_sent_at": "2026-03-25T05:54:49.735206",
+      "sent_count": 1,
+      "last_message_id": 58,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.23356": {
+      "title": "Contrastive Metric Learning for Point Cloud Segmentation in Highly Granular Detectors",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.23356v1",
+      "last_sent_at": "2026-03-25T05:54:51.382902",
+      "sent_count": 1,
+      "last_message_id": 60,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.23414": {
+      "title": "SortedRL: Accelerating RL Training for LLMs through Online Length-Aware Scheduling",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.23414v1",
+      "last_sent_at": "2026-03-25T05:54:52.208326",
+      "sent_count": 1,
+      "last_message_id": 61,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.23245": {
+      "title": "Neural ODE and SDE Models for Adaptation and Planning in Model-Based Reinforcement Learning",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.23245v1",
+      "last_sent_at": "2026-03-25T05:54:53.018005",
+      "sent_count": 1,
+      "last_message_id": 62,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

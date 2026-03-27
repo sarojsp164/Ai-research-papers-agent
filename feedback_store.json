@@ -797,6 +797,186 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2603.25702": {
+      "title": "S2D2: Fast Decoding for Diffusion LLMs via Training-Free Self-Speculation",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25702v1",
+      "last_sent_at": "2026-03-27T06:05:20.665013",
+      "sent_count": 1,
+      "last_message_id": 65,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25737": {
+      "title": "Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25737v1",
+      "last_sent_at": "2026-03-27T06:05:21.488446",
+      "sent_count": 1,
+      "last_message_id": 66,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25697": {
+      "title": "The Kitchen Loop: User-Spec-Driven Development for a Self-Evolving Codebase",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25697v1",
+      "last_sent_at": "2026-03-27T06:05:22.321105",
+      "sent_count": 1,
+      "last_message_id": 67,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25732": {
+      "title": "BizGenEval: A Systematic Benchmark for Commercial Visual Content Generation",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25732v1",
+      "last_sent_at": "2026-03-27T06:05:27.155564",
+      "sent_count": 1,
+      "last_message_id": 69,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25730": {
+      "title": "PackForcing: Short Video Training Suffices for Long Video Sampling and Long Context Inference",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25730v1",
+      "last_sent_at": "2026-03-27T06:05:27.978979",
+      "sent_count": 1,
+      "last_message_id": 70,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25739": {
+      "title": "MegaFlow: Zero-Shot Large Displacement Optical Flow",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25739v1",
+      "last_sent_at": "2026-03-27T06:05:28.812914",
+      "sent_count": 1,
+      "last_message_id": 71,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25719": {
+      "title": "Agent Factories for High Level Synthesis: How Far Can General-Purpose Coding Agents Go in Hardware Optimization?",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25719v1",
+      "last_sent_at": "2026-03-27T06:05:33.655902",
+      "sent_count": 1,
+      "last_message_id": 73,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25687": {
+      "title": "On Neural Scaling Laws for Weather Emulation through Continual Training",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25687v1",
+      "last_sent_at": "2026-03-27T06:05:34.473431",
+      "sent_count": 1,
+      "last_message_id": 74,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25699": {
+      "title": "Neural Network Conversion of Machine Learning Pipelines",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25699v1",
+      "last_sent_at": "2026-03-27T06:05:35.291778",
+      "sent_count": 1,
+      "last_message_id": 75,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25464": {
+      "title": "Maximum Entropy Behavior Exploration for Sim2Real Zero-Shot Reinforcement Learning",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25464v1",
+      "last_sent_at": "2026-03-27T06:05:36.917592",
+      "sent_count": 1,
+      "last_message_id": 77,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25720": {
+      "title": "R-C2: Cycle-Consistent Reinforcement Learning Improves Multimodal Reasoning",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25720v1",
+      "last_sent_at": "2026-03-27T06:05:40.923382",
+      "sent_count": 1,
+      "last_message_id": 78,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.25507": {
+      "title": "Lightweight GenAI for Network Traffic Synthesis: Fidelity, Augmentation, and Classification",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.25507v1",
+      "last_sent_at": "2026-03-27T06:05:41.748463",
+      "sent_count": 1,
+      "last_message_id": 79,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

@@ -977,6 +977,21 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2603.23401": {
+      "title": "Self-Supervised Graph Neural Networks for Optimal Substation Reconfiguration",
+      "topic": "ML / DL Innovations",
+      "source": "Semantic Scholar",
+      "link": "https://arxiv.org/abs/2603.23401",
+      "last_sent_at": "2026-03-29T06:14:58.611781",
+      "sent_count": 1,
+      "last_message_id": 82,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

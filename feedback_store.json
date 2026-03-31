@@ -992,6 +992,186 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2603.28765": {
+      "title": "Adaptive Block-Scaled Data Types",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28765v1",
+      "last_sent_at": "2026-03-31T06:10:05.067295",
+      "sent_count": 1,
+      "last_message_id": 85,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.28762": {
+      "title": "On-the-fly Repulsion in the Contextual Space for Rich Diversity in Diffusion Transformers",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28762v1",
+      "last_sent_at": "2026-03-31T06:10:05.886099",
+      "sent_count": 1,
+      "last_message_id": 86,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.28698": {
+      "title": "EpiScreen: Early Epilepsy Detection from Electronic Health Records with Large Language Models",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28698v1",
+      "last_sent_at": "2026-03-31T06:10:06.734152",
+      "sent_count": 1,
+      "last_message_id": 87,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.28763": {
+      "title": "PoseDreamer: Scalable and Photorealistic Human Data Generation Pipeline with Diffusion Models",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28763v1",
+      "last_sent_at": "2026-03-31T06:10:11.517904",
+      "sent_count": 1,
+      "last_message_id": 89,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.28713": {
+      "title": "DreamLite: A Lightweight On-Device Unified Model for Image Generation and Editing",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28713v1",
+      "last_sent_at": "2026-03-31T06:10:12.356561",
+      "sent_count": 1,
+      "last_message_id": 90,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "a6e7a3be35eaaec2": {
+      "title": "A Unified Multi-Task Vision Transformer for AI-Generated Image Detection and Generator Attribution",
+      "topic": "Computer Vision",
+      "source": "Semantic Scholar",
+      "link": "https://www.semanticscholar.org/paper/e83ea97a85ebbeddd83b7278b53b621a2cd15233",
+      "last_sent_at": "2026-03-31T06:10:13.156681",
+      "sent_count": 1,
+      "last_message_id": 91,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.28744": {
+      "title": "Stop Probing, Start Coding: Why Linear Probes and Sparse Autoencoders Fail at Compositional Generalisation",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28744v1",
+      "last_sent_at": "2026-03-31T06:10:17.951140",
+      "sent_count": 1,
+      "last_message_id": 93,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.28708": {
+      "title": "GPU-Accelerated Optimization of Transformer-Based Neural Networks for Real-Time Inference",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28708v1",
+      "last_sent_at": "2026-03-31T06:10:18.763274",
+      "sent_count": 1,
+      "last_message_id": 94,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.28764": {
+      "title": "Geometry-aware similarity metrics for neural representations on Riemannian and statistical manifolds",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28764v1",
+      "last_sent_at": "2026-03-31T06:10:19.602369",
+      "sent_count": 1,
+      "last_message_id": 95,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.28618": {
+      "title": "Seeing with You: Perception-Reasoning Coevolution for Multimodal Reasoning",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28618v1",
+      "last_sent_at": "2026-03-31T06:10:21.212508",
+      "sent_count": 1,
+      "last_message_id": 97,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.28625": {
+      "title": "Dynamic Lookahead Distance via Reinforcement Learning-Based Pure Pursuit for Autonomous Racing",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28625v1",
+      "last_sent_at": "2026-03-31T06:10:25.196894",
+      "sent_count": 1,
+      "last_message_id": 98,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.28718": {
+      "title": "Stepwise Credit Assignment for GRPO on Flow-Matching Models",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.28718v1",
+      "last_sent_at": "2026-03-31T06:10:26.010798",
+      "sent_count": 1,
+      "last_message_id": 99,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "last_update_id": 7441499,
+  "last_update_id": 7441545,
   "processed_callback_ids": [],
   "votes": [],
   "papers": {
@@ -1166,6 +1166,171 @@
       "last_sent_at": "2026-03-31T06:10:26.010798",
       "sent_count": 1,
       "last_message_id": 99,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.30035": {
+      "title": "Reward-Based Online LLM Routing via NeuralUCB",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.30035v1",
+      "last_sent_at": "2026-04-01T06:26:13.406163",
+      "sent_count": 1,
+      "last_message_id": 102,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.30033": {
+      "title": "Tucker Attention: A generalization of approximate attention mechanisms",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.30033v1",
+      "last_sent_at": "2026-04-01T06:26:14.323642",
+      "sent_count": 1,
+      "last_message_id": 103,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.30036": {
+      "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought?",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.30036v1",
+      "last_sent_at": "2026-04-01T06:26:28.138289",
+      "sent_count": 2,
+      "last_message_id": 111,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.29620": {
+      "title": "Unify-Agent: A Unified Multimodal Agent for World-Grounded Image Synthesis",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.29620v1",
+      "last_sent_at": "2026-04-01T06:26:20.378640",
+      "sent_count": 1,
+      "last_message_id": 106,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.30043": {
+      "title": "Video Models Reason Early: Exploiting Plan Commitment for Maze Solving",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.30043v1",
+      "last_sent_at": "2026-04-01T06:26:21.269973",
+      "sent_count": 1,
+      "last_message_id": 107,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.29634": {
+      "title": "MacTok: Robust Continuous Tokenization for Image Generation",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.29634v1",
+      "last_sent_at": "2026-04-01T06:26:22.199463",
+      "sent_count": 1,
+      "last_message_id": 108,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.30017": {
+      "title": "Refined Detection for Gumbel Watermarking",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.30017v1",
+      "last_sent_at": "2026-04-01T06:26:27.209692",
+      "sent_count": 1,
+      "last_message_id": 110,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.30002": {
+      "title": "Tracking Equivalent Mechanistic Interpretations Across Neural Networks",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.30002v1",
+      "last_sent_at": "2026-04-01T06:26:29.051230",
+      "sent_count": 1,
+      "last_message_id": 112,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.30022": {
+      "title": "Hybrid Framework for Robotic Manipulation: Integrating Reinforcement Learning and Large Language Models",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.30022v1",
+      "last_sent_at": "2026-04-01T06:26:30.850971",
+      "sent_count": 1,
+      "last_message_id": 114,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.29871": {
+      "title": "ShapE-GRPO: Shapley-Enhanced Reward Allocation for Multi-Candidate LLM Training",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.29871v1",
+      "last_sent_at": "2026-04-01T06:26:34.946554",
+      "sent_count": 1,
+      "last_message_id": 115,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.29723": {
+      "title": "Reinforced Reasoning for End-to-End Retrosynthetic Planning",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2603.29723v1",
+      "last_sent_at": "2026-04-01T06:26:35.863621",
+      "sent_count": 1,
+      "last_message_id": 116,
       "feedback": {
         "up": 0,
         "down": 0,

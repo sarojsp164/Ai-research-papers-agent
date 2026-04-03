@@ -1337,6 +1337,171 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2604.02322": {
+      "title": "Batched Contextual Reinforcement: A Task-Scaling Law for Efficient Reasoning",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02322v1",
+      "last_sent_at": "2026-04-03T06:05:17.841020",
+      "sent_count": 2,
+      "last_message_id": 129,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02319": {
+      "title": "No Single Best Model for Diversity: Learning a Router for Sample Diversity",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02319v1",
+      "last_sent_at": "2026-04-03T06:05:08.407192",
+      "sent_count": 1,
+      "last_message_id": 120,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02315": {
+      "title": "Beyond the Assistant Turn: User Turn Generation as a Probe of Interaction Awareness in Language Models",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02315v1",
+      "last_sent_at": "2026-04-03T06:05:09.484502",
+      "sent_count": 1,
+      "last_message_id": 121,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02327": {
+      "title": "Steerable Visual Representations",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02327v1",
+      "last_sent_at": "2026-04-03T06:05:11.571668",
+      "sent_count": 1,
+      "last_message_id": 123,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02265": {
+      "title": "Modular Energy Steering for Safe Text-to-Image Generation with Foundation Models",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02265v1",
+      "last_sent_at": "2026-04-03T06:05:12.617585",
+      "sent_count": 1,
+      "last_message_id": 124,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02330": {
+      "title": "ActionParty: Multi-Subject Action Binding in Generative Video Games",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02330v1",
+      "last_sent_at": "2026-04-03T06:05:13.662253",
+      "sent_count": 1,
+      "last_message_id": 125,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02313": {
+      "title": "Topological Effects in Neural Network Field Theory",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02313v1",
+      "last_sent_at": "2026-04-03T06:05:15.724908",
+      "sent_count": 1,
+      "last_message_id": 127,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02292": {
+      "title": "Taming the Exponential: A Fast Softmax Surrogate for Integer-Native Edge Inference",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02292v1",
+      "last_sent_at": "2026-04-03T06:05:16.748869",
+      "sent_count": 1,
+      "last_message_id": 128,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02270": {
+      "title": "Crystalite: A Lightweight Transformer for Efficient Crystal Modeling",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02270v1",
+      "last_sent_at": "2026-04-03T06:05:19.920030",
+      "sent_count": 1,
+      "last_message_id": 131,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02211": {
+      "title": "Multi-Agent Video Recommenders: Evolution, Patterns, and Open Challenges",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02211v1",
+      "last_sent_at": "2026-04-03T06:05:20.945023",
+      "sent_count": 1,
+      "last_message_id": 132,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02288": {
+      "title": "Unifying Group-Relative and Self-Distillation Policy Optimization via Sample Routing",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.02288v1",
+      "last_sent_at": "2026-04-03T06:05:22.005485",
+      "sent_count": 1,
+      "last_message_id": 133,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

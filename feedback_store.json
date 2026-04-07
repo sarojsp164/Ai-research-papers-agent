@@ -1502,6 +1502,171 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "c5b40b9a120542d2": {
+      "title": "Plant Disease Detection and Prevention Using Vision Transformer (VIT) and Large Language Model (LLM)",
+      "topic": "LLMs & Language Models",
+      "source": "Semantic Scholar",
+      "link": "https://www.semanticscholar.org/paper/779c032bc315ea1b2db77a0b403dd22983aead8f",
+      "last_sent_at": "2026-04-07T06:10:20.076149",
+      "sent_count": 1,
+      "last_message_id": 138,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "1c76a49fa445a752": {
+      "title": "Employing a large language model and a Transformer model for data analysis of turbulent bubble flow",
+      "topic": "LLMs & Language Models",
+      "source": "Semantic Scholar",
+      "link": "https://www.semanticscholar.org/paper/04320a8b7e3fb2f73a1fe5621816f2223f6de9b4",
+      "last_sent_at": "2026-04-07T06:10:21.168326",
+      "sent_count": 1,
+      "last_message_id": 139,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.04924": {
+      "title": "Your Pre-trained Diffusion Model Secretly Knows Restoration",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.04924v1",
+      "last_sent_at": "2026-04-07T06:10:23.334713",
+      "sent_count": 1,
+      "last_message_id": 141,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.04797": {
+      "title": "Multi-Modal Sensor Fusion using Hybrid Attention for Autonomous Driving",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.04797v1",
+      "last_sent_at": "2026-04-07T06:10:24.420006",
+      "sent_count": 1,
+      "last_message_id": 142,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.04746": {
+      "title": "Think in Strokes, Not Pixels: Process-Driven Image Generation via Interleaved Reasoning",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.04746v1",
+      "last_sent_at": "2026-04-07T06:10:25.566058",
+      "sent_count": 1,
+      "last_message_id": 143,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.04916": {
+      "title": "Empowering Power Outage Prediction with Spatially Aware Hybrid Graph Neural Networks and Contrastive Learning",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.04916v1",
+      "last_sent_at": "2026-04-07T06:10:27.723572",
+      "sent_count": 1,
+      "last_message_id": 145,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.04869": {
+      "title": "Optimizing LLM Prompt Engineering with DSPy Based Declarative Learning",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.04869v1",
+      "last_sent_at": "2026-04-07T06:10:28.796307",
+      "sent_count": 1,
+      "last_message_id": 146,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.04920": {
+      "title": "PINNs in PDE Constrained Optimal Control Problems: Direct vs Indirect Methods",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.04920v1",
+      "last_sent_at": "2026-04-07T06:10:29.879574",
+      "sent_count": 1,
+      "last_message_id": 147,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.04898": {
+      "title": "QED-Nano: Teaching a Tiny Model to Prove Hard Theorems",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.04898v1",
+      "last_sent_at": "2026-04-07T06:10:32.059605",
+      "sent_count": 1,
+      "last_message_id": 149,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.04917": {
+      "title": "Vero: An Open RL Recipe for General Visual Reasoning",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.04917v1",
+      "last_sent_at": "2026-04-07T06:10:33.173821",
+      "sent_count": 1,
+      "last_message_id": 150,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.04914": {
+      "title": "Analyzing Symbolic Properties for DRL Agents in Systems and Networking",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.04914v1",
+      "last_sent_at": "2026-04-07T06:10:34.257359",
+      "sent_count": 1,
+      "last_message_id": 151,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

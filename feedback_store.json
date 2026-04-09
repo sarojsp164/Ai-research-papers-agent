@@ -1667,6 +1667,171 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2604.07343": {
+      "title": "Personalized RewardBench: Evaluating Reward Models with Human Aligned Personalization",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.07343v1",
+      "last_sent_at": "2026-04-09T06:13:32.433591",
+      "sent_count": 2,
+      "last_message_id": 163,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.07321": {
+      "title": "Syntax Is Easy, Semantics Is Hard: Evaluating LLMs for LTL Translation",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.07321v1",
+      "last_sent_at": "2026-04-09T06:13:19.347912",
+      "sent_count": 1,
+      "last_message_id": 155,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.07320": {
+      "title": "Evaluating In-Context Translation with Synchronous Context-Free Grammar Transduction",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.07320v1",
+      "last_sent_at": "2026-04-09T06:13:20.212710",
+      "sent_count": 1,
+      "last_message_id": 156,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.07273": {
+      "title": "GenLCA: 3D Diffusion for Full-Body Avatars from In-the-Wild Videos",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.07273v1",
+      "last_sent_at": "2026-04-09T06:13:25.065016",
+      "sent_count": 1,
+      "last_message_id": 158,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.07210": {
+      "title": "VersaVogue: Visual Expert Orchestration and Preference Alignment for Unified Fashion Synthesis",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.07210v1",
+      "last_sent_at": "2026-04-09T06:13:25.929776",
+      "sent_count": 1,
+      "last_message_id": 159,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.07329": {
+      "title": "Distilling Photon-Counting CT into Routine Chest CT through Clinically Validated Degradation Modeling",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.07329v1",
+      "last_sent_at": "2026-04-09T06:13:26.778922",
+      "sent_count": 1,
+      "last_message_id": 160,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.07316": {
+      "title": "SL-FAC: A Communication-Efficient Split Learning Framework with Frequency-Aware Compression",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.07316v1",
+      "last_sent_at": "2026-04-09T06:13:31.599189",
+      "sent_count": 1,
+      "last_message_id": 162,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "e77cd44682e26bbb": {
+      "title": "A spatio-temporal self-supervised meta-learning network with dynamic graph learning for traffic flow forecasting",
+      "topic": "ML / DL Innovations",
+      "source": "Semantic Scholar",
+      "link": "https://www.semanticscholar.org/paper/108bb8fae4f9447d6572af3e358a41b28b1ef11d",
+      "last_sent_at": "2026-04-09T06:13:33.269950",
+      "sent_count": 1,
+      "last_message_id": 164,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.07133": {
+      "title": "Energy Saving for Cell-Free Massive MIMO Networks: A Multi-Agent Deep Reinforcement Learning Approach",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.07133v1",
+      "last_sent_at": "2026-04-09T06:13:34.897634",
+      "sent_count": 1,
+      "last_message_id": 166,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.07165": {
+      "title": "Reason in Chains, Learn in Trees: Self-Rectification and Grafting for Multi-turn Agent Policy Optimization",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.07165v1",
+      "last_sent_at": "2026-04-09T06:13:38.893974",
+      "sent_count": 1,
+      "last_message_id": 167,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.07298": {
+      "title": "Region-Graph Optimal Transport Routing for Mixture-of-Experts Whole-Slide Image Classification",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.07298v1",
+      "last_sent_at": "2026-04-09T06:13:39.742006",
+      "sent_count": 1,
+      "last_message_id": 168,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

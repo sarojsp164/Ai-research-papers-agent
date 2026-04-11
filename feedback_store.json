@@ -1832,6 +1832,186 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2604.08540": {
+      "title": "AVGen-Bench: A Task-Driven Benchmark for Multi-Granular Evaluation of Text-to-Audio-Video Generation",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08540v1",
+      "last_sent_at": "2026-04-11T05:51:13.542147",
+      "sent_count": 1,
+      "last_message_id": 171,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.08529": {
+      "title": "PSI: Shared State as the Missing Layer for Coherent AI-Generated Instruments in Personal AI Agents",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08529v1",
+      "last_sent_at": "2026-04-11T05:51:14.383370",
+      "sent_count": 1,
+      "last_message_id": 172,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2603.24767": {
+      "title": "Fine-Tuning A Large Language Model for Systematic Review Screening",
+      "topic": "LLMs & Language Models",
+      "source": "Semantic Scholar",
+      "link": "https://arxiv.org/abs/2603.24767",
+      "last_sent_at": "2026-04-11T05:51:15.237585",
+      "sent_count": 1,
+      "last_message_id": 173,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.08500": {
+      "title": "Novel View Synthesis as Video Completion",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08500v1",
+      "last_sent_at": "2026-04-11T05:51:20.158799",
+      "sent_count": 1,
+      "last_message_id": 175,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.08546": {
+      "title": "When Numbers Speak: Aligning Textual Numerals and Visual Instances in Text-to-Video Diffusion Models",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08546v1",
+      "last_sent_at": "2026-04-11T05:51:21.076037",
+      "sent_count": 1,
+      "last_message_id": 176,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.08305": {
+      "title": "HistDiT: A Structure-Aware Latent Conditional Diffusion Model for High-Fidelity Virtual Staining in Histopathology",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08305v1",
+      "last_sent_at": "2026-04-11T05:51:21.906589",
+      "sent_count": 1,
+      "last_message_id": 177,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.08499": {
+      "title": "PIArena: A Platform for Prompt Injection Evaluation",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08499v1",
+      "last_sent_at": "2026-04-11T05:51:26.752689",
+      "sent_count": 1,
+      "last_message_id": 179,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.08537": {
+      "title": "Meta-learning In-Context Enables Training-Free Cross Subject Brain Decoding",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08537v1",
+      "last_sent_at": "2026-04-11T05:51:27.660881",
+      "sent_count": 1,
+      "last_message_id": 180,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.08469": {
+      "title": "Persistence-Augmented Neural Networks",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08469v1",
+      "last_sent_at": "2026-04-11T05:51:28.524277",
+      "sent_count": 1,
+      "last_message_id": 181,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.08539": {
+      "title": "OpenVLThinkerV2: A Generalist Multimodal Reasoning Model for Multi-domain Visual Tasks",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08539v1",
+      "last_sent_at": "2026-04-11T05:51:30.187216",
+      "sent_count": 1,
+      "last_message_id": 183,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.08545": {
+      "title": "Act Wisely: Cultivating Meta-Cognitive Tool Use in Agentic Multimodal Models",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08545v1",
+      "last_sent_at": "2026-04-11T05:51:34.245621",
+      "sent_count": 1,
+      "last_message_id": 184,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.08541": {
+      "title": "Seeing but Not Thinking: Routing Distraction in Multimodal Mixture-of-Experts",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.08541v1",
+      "last_sent_at": "2026-04-11T05:51:35.064692",
+      "sent_count": 1,
+      "last_message_id": 185,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

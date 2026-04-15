@@ -2012,6 +2012,186 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2604.13017": {
+      "title": "PAL: Personal Adaptive Learner",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.13017v1",
+      "last_sent_at": "2026-04-15T06:25:28.704185",
+      "sent_count": 1,
+      "last_message_id": 190,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.13016": {
+      "title": "Rethinking On-Policy Distillation of Large Language Models: Phenomenology, Mechanism, and Recipe",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.13016v1",
+      "last_sent_at": "2026-04-15T06:25:29.658095",
+      "sent_count": 1,
+      "last_message_id": 191,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.13010": {
+      "title": "Lightning OPD: Efficient Post-Training for Large Reasoning Models with Offline On-Policy Distillation",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.13010v1",
+      "last_sent_at": "2026-04-15T06:25:30.565547",
+      "sent_count": 1,
+      "last_message_id": 192,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.13030": {
+      "title": "Generative Refinement Networks for Visual Synthesis",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.13030v1",
+      "last_sent_at": "2026-04-15T06:25:35.575827",
+      "sent_count": 1,
+      "last_message_id": 194,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.12807": {
+      "title": "Rethinking Satellite Image Restoration for Onboard AI: A Lightweight Learning-Based Approach",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.12807v1",
+      "last_sent_at": "2026-04-15T06:25:36.514407",
+      "sent_count": 1,
+      "last_message_id": 195,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.12780": {
+      "title": "Efficient Adversarial Training via Criticality-Aware Fine-Tuning",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.12780v1",
+      "last_sent_at": "2026-04-15T06:25:37.420420",
+      "sent_count": 1,
+      "last_message_id": 196,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.13022": {
+      "title": "Classical and Quantum Speedups for Non-Convex Optimization via Energy Conserving Descent",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.13022v1",
+      "last_sent_at": "2026-04-15T06:25:42.413030",
+      "sent_count": 1,
+      "last_message_id": 198,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.13024": {
+      "title": "CLAD: Efficient Log Anomaly Detection Directly on Compressed Representations",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.13024v1",
+      "last_sent_at": "2026-04-15T06:25:43.335836",
+      "sent_count": 1,
+      "last_message_id": 199,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.12968": {
+      "title": "Evolution of Optimization Methods: Algorithms, Scenarios, and Evaluations",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.12968v1",
+      "last_sent_at": "2026-04-15T06:25:44.261639",
+      "sent_count": 1,
+      "last_message_id": 200,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.12667": {
+      "title": "Safe reinforcement learning with online filtering for fatigue-predictive human-robot task planning and allocation in production",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.12667v1",
+      "last_sent_at": "2026-04-15T06:25:46.075241",
+      "sent_count": 1,
+      "last_message_id": 202,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.12879": {
+      "title": "FastGrasp: Learning-based Whole-body Control method for Fast Dexterous Grasping with Mobile Manipulators",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.12879v1",
+      "last_sent_at": "2026-04-15T06:25:50.158045",
+      "sent_count": 1,
+      "last_message_id": 203,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.10678": {
+      "title": "FedRio: Personalized Federated Social Bot Detection via Cooperative Reinforced Contrastive Adversarial Distillation",
+      "topic": "New AI Algorithms",
+      "source": "Semantic Scholar",
+      "link": "https://arxiv.org/abs/2604.10678",
+      "last_sent_at": "2026-04-15T06:25:51.088962",
+      "sent_count": 1,
+      "last_message_id": 204,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

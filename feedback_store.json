@@ -2192,6 +2192,141 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2604.15302": {
+      "title": "Diagnosing LLM Judge Reliability: Conformal Prediction Sets and Transitivity Violations",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.15302v1",
+      "last_sent_at": "2026-04-17T06:27:39.849399",
+      "sent_count": 1,
+      "last_message_id": 207,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.15272": {
+      "title": "Prism: Symbolic Superoptimization of Tensor Programs",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.15272v1",
+      "last_sent_at": "2026-04-17T06:27:53.616350",
+      "sent_count": 2,
+      "last_message_id": 215,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.15306": {
+      "title": "Generalization in LLM Problem Solving: The Case of the Shortest Path",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.15306v1",
+      "last_sent_at": "2026-04-17T06:27:54.533575",
+      "sent_count": 2,
+      "last_message_id": 216,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.15310": {
+      "title": "TokenLight: Precise Lighting Control in Images using Attribute Tokens",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.15310v1",
+      "last_sent_at": "2026-04-17T06:27:46.727451",
+      "sent_count": 1,
+      "last_message_id": 211,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.14884": {
+      "title": "FSDETR: Frequency-Spatial Feature Enhancement for Small Object Detection",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.14884v1",
+      "last_sent_at": "2026-04-17T06:27:47.651094",
+      "sent_count": 1,
+      "last_message_id": 212,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.15297": {
+      "title": "Benchmarking Optimizers for MLPs in Tabular Deep Learning",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.15297v1",
+      "last_sent_at": "2026-04-17T06:27:49.508761",
+      "sent_count": 1,
+      "last_message_id": 214,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.15174": {
+      "title": "MambaSL: Exploring Single-Layer Mamba for Time Series Classification",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.15174v1",
+      "last_sent_at": "2026-04-17T06:27:56.361139",
+      "sent_count": 1,
+      "last_message_id": 218,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.15148": {
+      "title": "IG-Search: Step-Level Information Gain Rewards for Search-Augmented Reasoning",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.15148v1",
+      "last_sent_at": "2026-04-17T06:27:57.280512",
+      "sent_count": 1,
+      "last_message_id": 219,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.15149": {
+      "title": "LLMs Gaming Verifiers: RLVR can Lead to Reward Hacking",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.15149v1",
+      "last_sent_at": "2026-04-17T06:28:01.354663",
+      "sent_count": 1,
+      "last_message_id": 220,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

@@ -2327,6 +2327,141 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2604.18578": {
+      "title": "Bounded Ratio Reinforcement Learning",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.18578v1",
+      "last_sent_at": "2026-04-21T06:27:09.736531",
+      "sent_count": 2,
+      "last_message_id": 235,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.18574": {
+      "title": "When Can LLMs Learn to Reason with Weak Supervision?",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.18574v1",
+      "last_sent_at": "2026-04-21T06:27:11.611591",
+      "sent_count": 3,
+      "last_message_id": 237,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.18576": {
+      "title": "Agentic Forecasting using Sequential Bayesian Updating of Linguistic Beliefs",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.18576v1",
+      "last_sent_at": "2026-04-21T06:26:56.015502",
+      "sent_count": 1,
+      "last_message_id": 227,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.18537": {
+      "title": "MetaCloak-JPEG: JPEG-Robust Adversarial Perturbation for Preventing Unauthorized DreamBooth-Based Deepfake Generation",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.18537v1",
+      "last_sent_at": "2026-04-21T06:27:00.994280",
+      "sent_count": 1,
+      "last_message_id": 229,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.18549": {
+      "title": "Advancing Vision Transformer with Enhanced Spatial Priors",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.18549v1",
+      "last_sent_at": "2026-04-21T06:27:01.939225",
+      "sent_count": 1,
+      "last_message_id": 230,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02966": {
+      "title": "Visual Prototype Conditioned Focal Region Generation for UAV-Based Object Detection",
+      "topic": "Computer Vision",
+      "source": "Semantic Scholar",
+      "link": "https://arxiv.org/abs/2604.02966",
+      "last_sent_at": "2026-04-21T06:27:02.876998",
+      "sent_count": 1,
+      "last_message_id": 231,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.18567": {
+      "title": "Latent Phase-Shift Rollback: Inference-Time Error Correction via Residual Stream Monitoring and KV-Cache Steering",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.18567v1",
+      "last_sent_at": "2026-04-21T06:27:08.791030",
+      "sent_count": 1,
+      "last_message_id": 234,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.18530": {
+      "title": "OGER: A Robust Offline-Guided Exploration Reward for Hybrid Reinforcement Learning",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.18530v1",
+      "last_sent_at": "2026-04-21T06:27:15.734842",
+      "sent_count": 1,
+      "last_message_id": 238,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.18580": {
+      "title": "Sessa: Selective State Space Attention",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.18580v1",
+      "last_sent_at": "2026-04-21T06:27:16.636956",
+      "sent_count": 1,
+      "last_message_id": 239,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "last_update_id": 7441545,
+  "last_update_id": 7441549,
   "processed_callback_ids": [],
   "votes": [],
   "papers": {
@@ -2456,6 +2456,156 @@
       "last_sent_at": "2026-04-21T06:27:16.636956",
       "sent_count": 1,
       "last_message_id": 239,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.20811": {
+      "title": "Diagnosing CFG Interpretation in LLMs",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.20811v1",
+      "last_sent_at": "2026-04-23T06:31:17.294516",
+      "sent_count": 1,
+      "last_message_id": 242,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.20817": {
+      "title": "Convergent Evolution: How Different Language Models Learn Similar Number Representations",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.20817v1",
+      "last_sent_at": "2026-04-23T06:31:29.350989",
+      "sent_count": 2,
+      "last_message_id": 252,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.02194": {
+      "title": "Neuro-RIT: Neuron-Guided Instruction Tuning for Robust Retrieval-Augmented Language Model",
+      "topic": "LLMs & Language Models",
+      "source": "Semantic Scholar",
+      "link": "https://arxiv.org/abs/2604.02194",
+      "last_sent_at": "2026-04-23T06:31:19.727768",
+      "sent_count": 1,
+      "last_message_id": 244,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.20816": {
+      "title": "ParetoSlider: Diffusion Models Post-Training for Continuous Reward Control",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.20816v1",
+      "last_sent_at": "2026-04-23T06:31:28.149354",
+      "sent_count": 2,
+      "last_message_id": 251,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.20796": {
+      "title": "LLaDA2.0-Uni: Unifying Multimodal Understanding and Generation with Diffusion Large Language Model",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.20796v1",
+      "last_sent_at": "2026-04-23T06:31:23.345948",
+      "sent_count": 1,
+      "last_message_id": 247,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.20715": {
+      "title": "GeoRelight: Learning Joint Geometrical Relighting and Reconstruction with Flexible Multi-Modal Diffusion Transformers",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.20715v1",
+      "last_sent_at": "2026-04-23T06:31:24.552488",
+      "sent_count": 1,
+      "last_message_id": 248,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.20824": {
+      "title": "Closing the Domain Gap in Biomedical Imaging by In-Context Control Samples",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.20824v1",
+      "last_sent_at": "2026-04-23T06:31:26.952187",
+      "sent_count": 1,
+      "last_message_id": 250,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.20688": {
+      "title": "Storm Surge Modeling, Bias Correction, Graph Neural Networks, Graph Convolution Networks",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.20688v1",
+      "last_sent_at": "2026-04-23T06:31:31.747124",
+      "sent_count": 1,
+      "last_message_id": 254,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.20755": {
+      "title": "V-tableR1: Process-Supervised Multimodal Table Reasoning with Critic-Guided Policy Optimization",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.20755v1",
+      "last_sent_at": "2026-04-23T06:31:32.945568",
+      "sent_count": 1,
+      "last_message_id": 255,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.20659": {
+      "title": "GRPO-VPS: Enhancing Group Relative Policy Optimization with Verifiable Process Supervision for Effective Reasoning",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.20659v1",
+      "last_sent_at": "2026-04-23T06:31:34.152445",
+      "sent_count": 1,
+      "last_message_id": 256,
       "feedback": {
         "up": 0,
         "down": 0,

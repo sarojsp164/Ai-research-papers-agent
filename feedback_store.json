@@ -2612,6 +2612,186 @@
         "score": 0
       },
       "user_votes": {}
+    },
+    "2604.21928": {
+      "title": "Evaluation of Automatic Speech Recognition Using Generative Large Language Models",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21928v1",
+      "last_sent_at": "2026-04-25T06:12:19.759233",
+      "sent_count": 1,
+      "last_message_id": 259,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21916": {
+      "title": "MathDuels: Evaluating LLMs as Problem Posers and Solvers",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21916v1",
+      "last_sent_at": "2026-04-25T06:12:20.610633",
+      "sent_count": 1,
+      "last_message_id": 260,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21910": {
+      "title": "From Research Question to Scientific Workflow: Leveraging Agentic AI for Science Automation",
+      "topic": "LLMs & Language Models",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21910v1",
+      "last_sent_at": "2026-04-25T06:12:21.430434",
+      "sent_count": 1,
+      "last_message_id": 261,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21627": {
+      "title": "DCMorph: Face Morphing via Dual-Stream Cross-Attention Diffusion",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21627v1",
+      "last_sent_at": "2026-04-25T06:12:26.284301",
+      "sent_count": 1,
+      "last_message_id": 263,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21502": {
+      "title": "VFM$^{4}$SDG: Unveiling the Power of VFMs for Single-Domain Generalized Object Detection",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21502v1",
+      "last_sent_at": "2026-04-25T06:12:27.119589",
+      "sent_count": 1,
+      "last_message_id": 264,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21904": {
+      "title": "UniGenDet: A Unified Generative-Discriminative Framework for Co-Evolutionary Image Generation and Generated Image Detection",
+      "topic": "Computer Vision",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21904v1",
+      "last_sent_at": "2026-04-25T06:12:27.978194",
+      "sent_count": 1,
+      "last_message_id": 265,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21923": {
+      "title": "The Sample Complexity of Multicalibration",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21923v1",
+      "last_sent_at": "2026-04-25T06:12:32.898260",
+      "sent_count": 1,
+      "last_message_id": 267,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21905": {
+      "title": "Low-Rank Adaptation Redux for Large Models",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21905v1",
+      "last_sent_at": "2026-04-25T06:12:33.704929",
+      "sent_count": 1,
+      "last_message_id": 268,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21911": {
+      "title": "When Prompts Override Vision: Prompt-Induced Hallucinations in LVLMs",
+      "topic": "ML / DL Innovations",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21911v1",
+      "last_sent_at": "2026-04-25T06:12:34.532074",
+      "sent_count": 1,
+      "last_message_id": 269,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21711": {
+      "title": "Fairness under uncertainty in sequential decisions",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21711v1",
+      "last_sent_at": "2026-04-25T06:12:36.246199",
+      "sent_count": 1,
+      "last_message_id": 271,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21896": {
+      "title": "Nemobot Games: Crafting Strategic AI Gaming Agents for Interactive Learning with Large Language Models",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21896v1",
+      "last_sent_at": "2026-04-25T06:12:40.252959",
+      "sent_count": 1,
+      "last_message_id": 272,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
+    },
+    "2604.21640": {
+      "title": "Task-specific Subnetwork Discovery in Reinforcement Learning for Autonomous Underwater Navigation",
+      "topic": "New AI Algorithms",
+      "source": "arXiv",
+      "link": "http://arxiv.org/abs/2604.21640v1",
+      "last_sent_at": "2026-04-25T06:12:41.066383",
+      "sent_count": 1,
+      "last_message_id": 273,
+      "feedback": {
+        "up": 0,
+        "down": 0,
+        "score": 0
+      },
+      "user_votes": {}
     }
   }
 }
